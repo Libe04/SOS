@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <header>
+            <p>Home Cinema Fauser</p>
+        </header>
+        <main>
+            <div class="links">
+                <a id="1" href="cro_pren/cro_index.php">Prenotazione Biglietti</a>
+                <a id="2" href="cro_vis/cro_index.php">Visualizzazione Ricevute</a>
+                <a id="3" href="cro_nbambini/cro_index.php">Numero Bambini per Giorno</a>
+                <a id="4" href="cro_fest/cro_index.php">Spettacoli Festivi</a>
+                <a id="5" href="cro_riep/cro_index.php">Scrittura Riepilogo</a>
+                <a id="6" href="cro_vis_riep/cro_index.php">Visualizza Riepilogo</a>
+            </div>
+            <script>
+                let num = 1;
+
+                window.onload(setTimeout(animate, 100));
+
+                function animate() {
+                    document.getElementById(num.toString()).style.transform = "translateX(0%)";
+                    num++;
+                    if (num < 7) {
+                        setTimeout(animate, 100);
+                    }
+                }
+            </script>
+        </main>
+        <footer>
+            <p>Made by Libe Crola</p>
+        </footer>
+    </body>
+</html>
