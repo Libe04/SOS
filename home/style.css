@@ -1,3 +1,51 @@
+/* HOME PAGE */
+
 body {
-  color: brown;
+    padding: 0;
+    margin: 0;
+    height: 200vh;
+    overflow-x: hidden;
+}
+
+header {
+    height: 120px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-image: linear-gradient(to bottom, #e4e4e4, #ffffff);
+}
+
+#menu-icon {
+    width: 32px;
+    height: 32px;
+    padding: 32 32 0 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#main-name {
+    width: 48vw;
+    margin: 21vh 0 0 0;
+
+    /* FONT STYLING */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 7vh;
+}
+
+#sub-title {
+    width: 40vw;
+    margin: 0.1vh 0;
+
+    /* FONT STYLING */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 3vh;
+    color: #0000009a;
 }
