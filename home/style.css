@@ -8,12 +8,15 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 120px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background-image: linear-gradient(to bottom, #e4e4e4, #ffffff);
+    background-image: linear-gradient(to bottom, #e4e4e4, #ffffff00);
 }
 
 #menu-icon {
@@ -30,8 +33,12 @@ main {
 }
 
 #main-name {
-    width: 48vw;
-    margin: 21vh 0 0 0;
+    position: fixed;
+    top: 30.03vh;
+    left: 23.86vw;
+    margin: 0;
+    padding: 32px 0 0 32px;
+    line-height: 96%;
 
     /* FONT STYLING */
     font-family: Arial, Helvetica, sans-serif;
@@ -41,7 +48,7 @@ main {
 
 #sub-title {
     width: 40vw;
-    margin: 0.1vh 0;
+    margin: 41vh 0 0 0;
 
     /* FONT STYLING */
     font-family: Arial, Helvetica, sans-serif;
