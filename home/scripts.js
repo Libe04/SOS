@@ -67,36 +67,13 @@ class Animations {
             $("#sub-title span:first").text(str);
         }
 
-        // function loopForward() {
-        //     setTimeout(() => {
-        //         printNextChar(word);
-
-        //         if (charIndex >= word.length && wordIndex < array.length) {
-        //             word = array[wordIndex];
-        //             wordIndex++;
-        //             charIndex = 0;
-        //             str = "";
-        //             delay = 1000;
-        //             loopForward();
-        //         } else if (
-        //             charIndex <= word.length &&
-        //             wordIndex <= array.length
-        //         ) {
-        //             delay = 200;
-        //             loopForward();
-        //         } else {
-        //             wordIndex = 0;
-        //             loopForward();
-        //         }
-        //     }, delay);
-        // }
-
         function loopForward() {
             setTimeout(() => {
                 printNextChar(word);
 
                 if (charIndex >= word.length && wordIndex < array.length) {
-                    delay = 1000;
+                    delay = 2000;
+                    blink(400);
                     loopBack();
                 } else if (
                     charIndex < word.length &&
@@ -118,7 +95,8 @@ class Animations {
                 if (charIndex == 0 && wordIndex < array.length) {
                     word = array[wordIndex];
                     wordIndex++;
-                    delay = 1000;
+                    delay = 2000;
+                    blink(400);
                     loopForward();
                 } else if (
                     charIndex <= word.length &&
@@ -130,6 +108,21 @@ class Animations {
                     loopBack();
                 }
             }, delay);
+        }
+
+        let timesBlinked = 0;
+        function blink(time) {
+            setTimeout(() => {
+                $("#sub-title span:last").toggle();
+
+                timesBlinked++;
+                if (timesBlinked * time < delay) {
+                    blink(time);
+                } else {
+                    timesBlinked = 0;
+                    $("#sub-title span:last").show();
+                }
+            }, time);
         }
 
         loopForward();
