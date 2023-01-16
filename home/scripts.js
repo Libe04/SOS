@@ -10,10 +10,24 @@ $(function () {
 
     animation.animateTitle();
     animation.animateSubtitle();
+    $("#menu-icon").click(() => {
+        animation.openMenu();
+    });
 });
 
 class Animations {
     constructor() {}
+
+    openMenu() {
+        document.getElementById("sider").style.transform = "translateX(0%)";
+        document.getElementById("mid-line").style.transform = "rotate(90deg)";
+        document.getElementById("bottom-line").style.transform =
+            "translateX(100%)";
+        document.getElementById("top-line").style.transform = "translateY(22%)";
+        document.getElementById("menu-icon").style.transform =
+            "rotate(-405deg)";
+        document.getElementById("menu-icon").style.zIndex = "5";
+    }
 
     animateTitle() {
         window.onscroll = () => {
@@ -128,3 +142,4 @@ class Animations {
         loopForward();
     }
 }
+0.0;

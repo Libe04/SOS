@@ -23,6 +23,9 @@ header {
     width: 32px;
     height: 32px;
     padding: 32 32 0 0;
+    cursor: pointer;
+    transform-origin: 25% 75%;
+    transition-duration: 1s;
 }
 
 main {
@@ -48,11 +51,55 @@ main {
 
 #sub-title {
     width: 40vw;
-    margin: 41vh 0 0 0;
+    margin: 42vh 0 0 0;
 
     /* FONT STYLING */
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 3vh;
     color: #0000009a;
+}
+
+#sider {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 13vw;
+    transform: translateX(150%);
+    height: 100vh;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.363);
+}
+
+.list {
+    padding: 96px 2.4vw;
+}
+
+#sider p {
+    margin: 0;
+    line-height: 180%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 2vh;
+    color: #00000080;
+    white-space: nowrap;
+    transition-duration: 0.2s;
+}
+
+#sider p:hover {
+    color: #000000;
+}
+
+#mid-line {
+    transform-origin: center;
+    transition-duration: 1s;
+}
+
+#top-line {
+    transform-origin: center 9px;
+    transition-duration: 1s;
+}
+#bottom-line {
+    transform-origin: 8px 22px;
+    transition-duration: 0.1s;
 }
