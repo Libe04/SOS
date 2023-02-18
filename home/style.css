@@ -69,6 +69,17 @@ main {
     transform: translateX(150%);
     height: 100vh;
     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.363);
+    transition-duration: 1s;
+}
+
+#close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    margin: 32 15 0 0;
+    cursor: pointer;
 }
 
 .list {
@@ -84,6 +95,7 @@ main {
     color: #00000080;
     white-space: nowrap;
     transition-duration: 0.2s;
+    cursor: pointer;
 }
 
 #sider p:hover {

@@ -13,6 +13,9 @@ $(function () {
     $("#menu-icon").click(() => {
         animation.openMenu();
     });
+    $("#close").click(() => {
+        animation.closeMenu();
+    });
 });
 
 class Animations {
@@ -26,7 +29,15 @@ class Animations {
         document.getElementById("top-line").style.transform = "translateY(22%)";
         document.getElementById("menu-icon").style.transform =
             "rotate(-405deg)";
-        document.getElementById("menu-icon").style.zIndex = "5";
+    }
+
+    closeMenu() {
+        document.getElementById("sider").style.transform = "translateX(150%)";
+        document.getElementById("mid-line").style.transform = "rotate(0deg)";
+        document.getElementById("bottom-line").style.transform =
+            "translateX(0%)";
+        document.getElementById("top-line").style.transform = "translateY(0%)";
+        document.getElementById("menu-icon").style.transform = "rotate(0deg)";
     }
 
     animateTitle() {
@@ -142,4 +153,3 @@ class Animations {
         loopForward();
     }
 }
-0.0;
