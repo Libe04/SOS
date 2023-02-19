@@ -10,7 +10,6 @@
     <body>
         <header>
             <p></p>
-            <!-- <img id="menu-icon" src="../assets/menu-icon.svg" /> -->
             <svg id="menu-icon" viewBox="0 0 32 32" fill="none">
                 <path
                     id="top-line"
@@ -30,15 +29,46 @@
             </svg>
         </header>
         <main>
-            <p id="main-name">
-                libe<span style="font-weight: 400">crola</span>
-            </p>
-            <p id="sub-title">I'm a <span></span><span>|</span></p>
+            <div>
+                <p id="main-name" onclick="window.location='index.html';">
+                    libe<span style="font-weight: 400">crola</span>
+                </p>
+                <p id="sub-title">I'm a <span></span><span>|</span></p>
+            </div>
+            <div id="about-wrapper">
+                <div id="about-pic">
+                    <img
+                        src="../assets/camiciato.jpg"
+                        height="100%"
+                        width="100%"
+                        style="object-fit: cover; border-radius: 4px"
+                    />
+                </div>
+                <div id="about-txt">
+                    <div>
+                        <h1 id="el-1">Who am I?</h1>
+                        <div>
+                            <p id="el-2">
+                                I’m an Italian IT Student, I’m 18 years old.
+                                Currently I'm attending my last year as
+                                Information Technology student and I’m planning
+                                to take a major degree in Civil Engineering in
+                                the next five years.
+                            </p>
+                            <p id="el-3">
+                                I’m also trying to build my knowledge in Full
+                                Stack Web Development...
+                            </p>
+                        </div>
+                    </div>
+                    <a id="el-4" href="www.youtube.com">About...</a>
+                </div>
+            </div>
         </main>
         <nav id="sider">
             <div id="close"></div>
             <div class="list">
-                <p onclick="">Home</p>
+                <p onclick="window.location='index.html';">Home</p>
                 <p onclick="">Educational Path</p>
                 <p onclick="">Projects</p>
                 <p onclick="">Links</p>

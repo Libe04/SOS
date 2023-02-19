@@ -1,15 +1,22 @@
 // VARIABLES
 let percentage = 0;
-let animationComplete = false;
+let titleAnimationComplete = false;
+let slideAnimationComplete = false;
 
 // CONSTANTS
 const titleTopOffset = 323;
+const aboutTrigger = titleTopOffset - 100;
 
 $(function () {
     let animation = new Animations();
 
-    animation.animateTitle();
     animation.animateSubtitle();
+
+    window.onscroll = () => {
+        animation.animateTitle();
+        animation.textSlide();
+    };
+
     $("#menu-icon").click(() => {
         animation.openMenu();
     });
@@ -40,34 +47,68 @@ class Animations {
         document.getElementById("menu-icon").style.transform = "rotate(0deg)";
     }
 
+    textSlide() {
+        const slideInterval = 80;
+
+        if (window.scrollY < aboutTrigger) {
+            slideAnimationComplete = false;
+            slideTo(100);
+        } else if (
+            window.scrollY > aboutTrigger &&
+            !slideAnimationComplete /*&& window.scrollY < 900*/
+        ) {
+            slideAnimationComplete = true;
+            slideTo(0);
+        }
+
+        function slideTo(whereToSlide) {
+            let i = 0;
+
+            document.getElementById("about-pic").style.transform =
+                "translateX(" + whereToSlide + "vw)";
+            slideElement();
+
+            // document.getElementById("el-1").style.transform = "translateX(0%)";
+            function slideElement() {
+                i++;
+                setTimeout(() => {
+                    let elementID = "el-" + i.toString();
+                    document.getElementById(elementID).style.transform =
+                        "translateX(" + whereToSlide + "vw)";
+
+                    if (i < 4) {
+                        slideElement();
+                    }
+                }, slideInterval);
+            }
+        }
+    }
+
     animateTitle() {
-        window.onscroll = () => {
-            if (window.scrollY < titleTopOffset) {
-                percentage = window.scrollY / titleTopOffset;
-                animationComplete = false;
+        if (window.scrollY < titleTopOffset) {
+            percentage = window.scrollY / titleTopOffset;
+            titleAnimationComplete = false;
+        } else {
+            if (percentage == 1) {
+                titleAnimationComplete = true;
             } else {
-                if (percentage == 1) {
-                    animationComplete = true;
-                } else {
-                    percentage = 1;
-                }
+                percentage = 1;
             }
+        }
 
-            if (!animationComplete) {
-                let spacingTop = (30.03 - 30.03 * percentage).toString() + "vh";
-                let spacingLeft =
-                    (23.86 - 23.86 * percentage).toString() + "vw";
-                const fontHeight =
-                    7 - 7 * percentage < 3.3 ? 3.3 : 7 - 7 * percentage;
+        if (!titleAnimationComplete) {
+            let spacingTop = (30.03 - 30.03 * percentage).toString() + "vh";
+            let spacingLeft = (23.86 - 23.86 * percentage).toString() + "vw";
+            const fontHeight =
+                7 - 7 * percentage < 3.3 ? 3.3 : 7 - 7 * percentage;
 
-                document.getElementById("main-name").style.top = spacingTop;
-                document.getElementById("main-name").style.left = spacingLeft;
-                document.getElementById("main-name").style.fontSize =
-                    fontHeight.toString() + "vh";
+            document.getElementById("main-name").style.top = spacingTop;
+            document.getElementById("main-name").style.left = spacingLeft;
+            document.getElementById("main-name").style.fontSize =
+                fontHeight.toString() + "vh";
 
-                // console.log(Math.round(percentage * 100) + "%");
-            }
-        };
+            // console.log(Math.round(percentage * 100) + "%");
+        }
     }
 
     animateSubtitle() {
