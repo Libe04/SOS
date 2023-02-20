@@ -2,6 +2,7 @@
 let percentage = 0;
 let titleAnimationComplete = false;
 let slideAnimationComplete = false;
+let menuIsOpen = false;
 
 // CONSTANTS
 const titleTopOffset = 323;
@@ -15,6 +16,7 @@ $(function () {
     window.onscroll = () => {
         animation.animateTitle();
         animation.textSlide();
+        if (menuIsOpen) animation.closeMenu();
     };
 
     $("#menu-icon").click(() => {
@@ -36,6 +38,7 @@ class Animations {
         document.getElementById("top-line").style.transform = "translateY(22%)";
         document.getElementById("menu-icon").style.transform =
             "rotate(-405deg)";
+        menuIsOpen = true;
     }
 
     closeMenu() {
@@ -45,6 +48,7 @@ class Animations {
             "translateX(0%)";
         document.getElementById("top-line").style.transform = "translateY(0%)";
         document.getElementById("menu-icon").style.transform = "rotate(0deg)";
+        menuIsOpen = false;
     }
 
     textSlide() {
